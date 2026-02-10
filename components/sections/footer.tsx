@@ -18,7 +18,7 @@ export function Footer() {
                 </div>
 
                 {/* Product Links */}
-                <div>
+                {/* <div>
                     <h4 className="font-semibold text-foreground mb-4">Product</h4>
                     <ul className="space-y-3">
                         {footer.links.product.map((link, index) => (
@@ -32,7 +32,7 @@ export function Footer() {
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div> */}
 
                 {/* Company Links */}
                 <div>
@@ -52,7 +52,7 @@ export function Footer() {
                 </div>
 
                 {/* Resources Links */}
-                <div>
+                {/* <div>
                     <h4 className="font-semibold text-foreground mb-4">Resources</h4>
                     <ul className="space-y-3">
                         {footer.links.resources.map((link, index) => (
@@ -66,7 +66,7 @@ export function Footer() {
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div> */}
             </div>
 
             {/* Trust Signals */}

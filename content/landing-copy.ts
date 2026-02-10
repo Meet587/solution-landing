@@ -280,9 +280,10 @@ export const landingCopy = {
         { label: "Deployment", href: "#" },
       ],
       company: [
-        { label: "About", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Contact", href: "#" },
+        { label: "About", href: "/about" },
+        { label: "Services", href: "/services" },
+        // { label: "Careers", href: "#" },
+        { label: "Contact", href: "/contact" },
       ],
       resources: [
         { label: "Documentation", href: "#" },
