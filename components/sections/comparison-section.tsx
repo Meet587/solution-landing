@@ -1,88 +1,97 @@
 "use client";
 
-import { Section } from "@/components/ui/section";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
-
-const comparisonData = [
-    {
-        feature: "Data Privacy",
-        saas: "Shared infrastructure, external servers",
-        ours: "100% private, your servers",
-        saasNegative: true,
-    },
-    {
-        feature: "Customization",
-        saas: "Generic models for everyone",
-        ours: "Hyper-personalized per team",
-        saasNegative: true,
-    },
-    {
-        feature: "Compliance",
-        saas: "Hope their SOC 2 covers you",
-        ours: "You control the audit trail",
-        saasNegative: true,
-    },
-    {
-        feature: "Vendor Lock-in",
-        saas: "Dependent on their API changes",
-        ours: "Open architecture, your rules",
-        saasNegative: true,
-    },
-    {
-        feature: "Data Ownership",
-        saas: "Terms of service uncertainty",
-        ours: "Absolute ownership",
-        saasNegative: true,
-    },
-];
+import { SectionContainer } from "@/components/ui/section-container";
+import { landingCopy } from "@/content/landing-copy";
+import { fadeInUp, staggerFast } from "@/lib/animations";
 
 export function ComparisonSection() {
-    return (
-        <Section variant="gradient">
-            <div className="text-center mb-12">
-                <h2 className="mb-4">Why Not SaaS AI?</h2>
-            </div>
+    const { comparison } = landingCopy;
 
+    return (
+        <SectionContainer>
             <div className="max-w-5xl mx-auto">
-                <div className="glass-card overflow-hidden">
+                <div className="text-center mb-12">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="mb-4"
+                    >
+                        {comparison.headline}
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-xl text-foreground-secondary"
+                    >
+                        {comparison.subheadline}
+                    </motion.p>
+                </div>
+
+                {/* Comparison Table */}
+                <motion.div
+                    variants={staggerFast}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="bg-white border border-border rounded-lg overflow-hidden shadow-soft"
+                >
                     {/* Table Header */}
-                    <div className="grid grid-cols-3 gap-4 border-b border-border/50 bg-secondary/30 p-6">
-                        <div className="font-bold text-lg">Feature</div>
-                        <div className="font-bold text-lg text-destructive/80">SaaS AI</div>
-                        <div className="font-bold text-lg gradient-text">Our Solution</div>
+                    <div className="grid grid-cols-3 bg-muted border-b border-border">
+                        <div className="p-4 font-semibold text-foreground"></div>
+                        <div className="p-4 font-semibold text-foreground border-l border-border">
+                            Public SaaS AI
+                        </div>
+                        <div className="p-4 font-semibold text-primary border-l border-border">
+                            Private AI Infrastructure
+                        </div>
                     </div>
 
                     {/* Table Rows */}
-                    {comparisonData.map((row, index) => (
+                    {comparison.dimensions.map((dimension, index) => (
                         <motion.div
-                            key={row.feature}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="grid grid-cols-3 gap-4 border-b border-border/30 p-6 hover:bg-secondary/20 transition-colors"
+                            key={index}
+                            variants={fadeInUp}
+                            className={`grid grid-cols-3 border-b border-border last:border-b-0 ${index % 2 === 0 ? "bg-white" : "bg-muted/30"
+                                }`}
                         >
-                            <div className="font-semibold">{row.feature}</div>
-                            <div className="flex items-start gap-2">
-                                <X className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
-                                <span className="text-muted-foreground">{row.saas}</span>
+                            <div className="p-4 font-semibold text-foreground">
+                                {dimension.aspect}
                             </div>
-                            <div className="flex items-start gap-2">
-                                <motion.div
-                                    initial={{ scale: 0 }}
-                                    whileInView={{ scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.3, delay: index * 0.1 + 0.2, type: "spring" }}
-                                >
-                                    <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                                </motion.div>
-                                <span className="font-medium">{row.ours}</span>
+                            <div className="p-4 border-l border-border flex items-start gap-2">
+                                <X className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+                                <span className="text-foreground-secondary text-sm">
+                                    {dimension.saas}
+                                </span>
+                            </div>
+                            <div className="p-4 border-l border-border flex items-start gap-2">
+                                <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                <span className="text-foreground-secondary text-sm font-medium">
+                                    {dimension.private}
+                                </span>
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
+
+                {/* Note */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="mt-8 p-6 bg-accent border border-border rounded-lg"
+                >
+                    <p className="text-foreground-secondary italic leading-relaxed">
+                        {comparison.note}
+                    </p>
+                </motion.div>
             </div>
-        </Section>
+        </SectionContainer>
     );
 }

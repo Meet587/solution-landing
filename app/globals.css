@@ -9,19 +9,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -43,143 +30,69 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-
-  /* Premium AI SaaS Color Palette */
-  --color-accent-purple: var(--accent-purple);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-cyan: var(--accent-cyan);
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem;
 
-  /* Light theme (minimal usage, dark-first) */
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.58 0.24 270);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.94 0.01 270);
-  --secondary-foreground: oklch(0.145 0 0);
-  --muted: oklch(0.95 0.005 270);
-  --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.65 0.25 290);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0.005 270);
-  --input: oklch(0.88 0.005 270);
-  --ring: oklch(0.65 0.25 290);
+  /* White/Off-white backgrounds - Enterprise theme */
+  --background: 0 0% 100%;
+  /* Pure white #FFFFFF */
+  --background-soft: 0 0% 98%;
+  /* Off-white #FAFAFA */
+  --background-muted: 0 0% 96%;
+  /* Soft gray #F5F5F5 */
 
-  /* Enterprise brand colors */
-  --accent-purple: oklch(0.65 0.25 290);
-  --accent-blue: oklch(0.58 0.24 250);
-  --accent-cyan: oklch(0.7 0.18 200);
+  /* Dark text for high contrast */
+  --foreground: 0 0% 10%;
+  /* Almost black #1A1A1A */
+  --foreground-secondary: 0 0% 25%;
+  /* Dark gray #404040 */
+  --foreground-muted: 0 0% 45%;
+  /* Medium gray #737373 */
 
-  /* Sidebar tokens */
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.58 0.24 270);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.94 0.01 270);
-  --sidebar-accent-foreground: oklch(0.145 0 0);
-  --sidebar-border: oklch(0.88 0.005 270);
-  --sidebar-ring: oklch(0.65 0.25 290);
+  /* Card backgrounds */
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+
+  /* Enterprise blues - Trust and calm */
+  --primary: 217 91% 60%;
+  /* Trust blue #3B82F6 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 33% 17%;
+  /* Deep navy #1E293B */
+  --secondary-foreground: 0 0% 100%;
+
+  /* Muted backgrounds */
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
+
+  /* Accent - Subtle blue */
+  --accent: 217 91% 95%;
+  /* Very light blue wash */
+  --accent-foreground: 217 91% 60%;
+
+  /* Borders & dividers */
+  --border: 0 0% 90%;
+  /* #E5E5E5 */
+  --border-light: 0 0% 93%;
+  /* Lighter border */
+  --input: 0 0% 90%;
+  --ring: 217 91% 60%;
+
+  /* Status colors */
+  --destructive: 0 84% 60%;
+  --success: 142 76% 36%;
+  --warning: 38 92% 50%;
 }
 
-.dark {
-  /* Dark theme colors - vibrant and premium */
-  --background: oklch(0.12 0.01 270);
-  --foreground: oklch(0.97 0 0);
-  --card: oklch(0.16 0.015 270);
-  --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.14 0.012 270);
-  --popover-foreground: oklch(0.97 0 0);
-
-  /* Primary: Vibrant purple */
-  --primary: oklch(0.7 0.26 290);
-  --primary-foreground: oklch(0.12 0.01 270);
-
-  /* Secondary: Deep purple-blue */
-  --secondary: oklch(0.22 0.03 270);
-  --secondary-foreground: oklch(0.97 0 0);
-
-  /* Muted: Subtle purple-gray */
-  --muted: oklch(0.2 0.02 270);
-  --muted-foreground: oklch(0.65 0.01 270);
-
-  /* Accent: Bright purple */
-  --accent: oklch(0.65 0.25 290);
-  --accent-foreground: oklch(0.12 0.01 270);
-
-  --destructive: oklch(0.65 0.25 25);
-  --border: oklch(0.25 0.02 270);
-  --input: oklch(0.22 0.025 270);
-  --ring: oklch(0.7 0.26 290);
-
-  /* Enterprise brand colors - vibrant in dark mode */
-  --accent-purple: oklch(0.7 0.26 290);
-  --accent-blue: oklch(0.65 0.25 250);
-  --accent-cyan: oklch(0.75 0.18 200);
-
-  /* Sidebar */
-  --sidebar: oklch(0.14 0.012 270);
-  --sidebar-foreground: oklch(0.97 0 0);
-  --sidebar-primary: oklch(0.7 0.26 290);
-  --sidebar-primary-foreground: oklch(0.12 0.01 270);
-  --sidebar-accent: oklch(0.22 0.03 270);
-  --sidebar-accent-foreground: oklch(0.97 0 0);
-  --sidebar-border: oklch(0.25 0.02 270);
-  --sidebar-ring: oklch(0.7 0.26 290);
-}
-
-/* Custom animations */
-@keyframes gradient-shift {
-
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes glow-pulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4),
-      0 0 40px rgba(139, 92, 246, 0.2);
-  }
-
-  50% {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6),
-      0 0 60px rgba(139, 92, 246, 0.3);
-  }
-}
-
-@keyframes fade-in-up {
+/* Subtle animations only - no aggressive motion */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
 
   to {
@@ -188,13 +101,37 @@
   }
 }
 
-@keyframes draw-line {
+@keyframes subtlePulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes drawLine {
   from {
     stroke-dashoffset: 1000;
   }
 
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -206,132 +143,91 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: 'cv11', 'ss01';
+    line-height: 1.6;
   }
 
-  /* Premium typography */
+  /* Enterprise typography - Clean and readable */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight;
+    @apply font-bold tracking-tight text-foreground;
+    line-height: 1.2;
   }
 
   h1 {
-    @apply text-5xl sm:text-6xl lg:text-7xl;
-    line-height: 1.1;
+    @apply text-4xl sm:text-5xl lg:text-6xl;
     letter-spacing: -0.02em;
   }
 
   h2 {
     @apply text-3xl sm:text-4xl lg:text-5xl;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 
   h3 {
     @apply text-2xl sm:text-3xl lg:text-4xl;
-    line-height: 1.3;
+  }
+
+  p {
+    @apply text-foreground-secondary;
+    line-height: 1.7;
   }
 }
 
 @layer utilities {
 
-  /* Gradient utilities */
-  .gradient-primary {
-    background: linear-gradient(135deg,
-        oklch(0.7 0.26 290) 0%,
-        oklch(0.65 0.25 250) 50%,
-        oklch(0.75 0.18 200) 100%);
-    background-size: 200% 200%;
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg,
-        oklch(0.7 0.26 290) 0%,
-        oklch(0.65 0.25 250) 50%,
-        oklch(0.75 0.18 200) 100%);
-    background-size: 200% 200%;
+  .section-container {
+    @apply mx-auto max-w-7xl px-6 lg:px-8;
+  }
+
+  /* Subtle gradient accents only (not for backgrounds) */
+  .accent-gradient {
+    background: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 70%) 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(217 91% 50%) 0%, hsl(217 91% 65%) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
   }
 
-  .animated-gradient {
-    animation: gradient-shift 8s ease infinite;
-  }
-
-  /* Glass morphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-  }
-
-  /* Glow effects */
-  .glow {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4),
-      0 0 40px rgba(139, 92, 246, 0.2);
-  }
-
-  .glow-hover:hover {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4),
-      0 0 40px rgba(139, 92, 246, 0.2);
-  }
-
-  .glow-pulse {
-    animation: glow-pulse 3s ease-in-out infinite;
-  }
-
   /* Animation utilities */
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
   .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out;
+    animation: fadeInUp 0.6s ease-out;
   }
 
-  /* Section spacing */
-  .section-padding {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
   }
 
-  @media (min-width: 640px) {
-    .section-padding {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
+  .animate-draw-line {
+    animation: drawLine 1.5s ease-out forwards;
   }
 
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
+  /* Card styles - Clean, no glass morphism */
+  .feature-card {
+    @apply bg-white border border-border rounded-lg p-6 transition-all duration-300;
   }
 
-  .section-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 80rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  .feature-card:hover {
+    @apply shadow-lg -translate-y-0.5 border-primary/30;
   }
 
-  @media (min-width: 1024px) {
-    .section-container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+  /* Soft shadow utilities */
+  .shadow-soft {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  }
+
+  .shadow-soft-lg {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
   }
 }

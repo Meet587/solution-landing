@@ -1,59 +1,71 @@
 "use client";
 
-import { Section } from "@/components/ui/section";
-import { CardWithHover } from "@/components/ui/card-with-hover";
 import { motion } from "framer-motion";
-import { AlertTriangle, Shield, Box } from "lucide-react";
+import {
+    AlertCircle,
+    TrendingUp,
+    Clock,
+    ShieldAlert,
+    Link2,
+    Brain,
+} from "lucide-react";
+import { SectionContainer } from "@/components/ui/section-container";
+import { FeatureCard } from "@/components/ui/feature-card";
+import { landingCopy } from "@/content/landing-copy";
+import { fadeInUp, staggerFast } from "@/lib/animations";
 
-const painPoints = [
-    {
-        icon: AlertTriangle,
-        title: "Your data trains their models",
-        description: "Enterprise data sent to third-party servers becomes part of shared training pipelines. Your competitive advantage, now everyone's baseline.",
-    },
-    {
-        icon: Box,
-        title: "One-size-fits-all doesn't fit",
-        description: "Generic AI can't understand your business context, processes, or proprietary knowledge. It's built for the masses, not your mission.",
-    },
-    {
-        icon: Shield,
-        title: "Compliance nightmares",
-        description: "GDPR, HIPAA, SOC 2 — your data governance policies don't work with SaaS black boxes. Hope isn't a compliance strategy.",
-    },
-];
+const icons = [AlertCircle, TrendingUp, Clock, ShieldAlert, Link2, Brain];
 
 export function ProblemSection() {
+    const { problem } = landingCopy;
+
     return (
-        <Section className="bg-secondary/30">
+        <SectionContainer>
             <div className="text-center mb-16">
-                <h2 className="mb-4 text-destructive">The SaaS AI Trap</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Generic models. Shared infrastructure. Data exposure risks.
-                </p>
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-4"
+                >
+                    {problem.headline}
+                </motion.h2>
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-xl text-foreground-secondary max-w-3xl mx-auto"
+                >
+                    {problem.subheadline}
+                </motion.p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-3">
-                {painPoints.map((point, index) => (
-                    <motion.div
-                        key={point.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: index * 0.15 }}
-                    >
-                        <CardWithHover className="h-full" glowOnHover={false}>
-                            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/10">
-                                <point.icon className="h-6 w-6 text-destructive" />
-                            </div>
-                            <h3 className="mb-3 text-xl font-bold">{point.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                {point.description}
-                            </p>
-                        </CardWithHover>
-                    </motion.div>
-                ))}
-            </div>
-        </Section>
+            <motion.div
+                variants={staggerFast}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+                {problem.issues.map((issue, index) => {
+                    const Icon = icons[index];
+                    return (
+                        <motion.div key={index} variants={fadeInUp}>
+                            <FeatureCard className="h-full">
+                                <Icon className="h-8 w-8 text-primary mb-4" />
+                                <h3 className="text-xl font-bold mb-3 text-foreground">
+                                    {issue.title}
+                                </h3>
+                                <p className="text-foreground-secondary leading-relaxed">
+                                    {issue.description}
+                                </p>
+                            </FeatureCard>
+                        </motion.div>
+                    );
+                })}
+            </motion.div>
+        </SectionContainer>
     );
 }

@@ -1,69 +1,92 @@
-import Link from "next/link";
-import { Shield, Clock, Headphones } from "lucide-react";
-
-const links = [
-    { label: "About", href: "#" },
-    { label: "Architecture", href: "#" },
-    { label: "Security", href: "#" },
-    { label: "Contact", href: "#" },
-];
-
-const trustSignals = [
-    { icon: Shield, text: "SOC 2 Compliant" },
-    { icon: Headphones, text: "Enterprise Support" },
-    { icon: Clock, text: "99.9% Uptime" },
-];
+import { SectionContainer } from "@/components/ui/section-container";
+import { landingCopy } from "@/content/landing-copy";
 
 export function Footer() {
+    const { footer } = landingCopy;
+
     return (
-        <footer className="border-t border-border/50 bg-secondary/20">
-            <div className="section-container py-12">
-                <div className="grid gap-8 md:grid-cols-3">
-                    {/* Company Info */}
-                    <div>
-                        <h3 className="mb-2 text-lg font-bold gradient-text">AI Infrastructure</h3>
-                        <p className="text-sm text-muted-foreground">
-                            Hyper-personalized AI agents for enterprise.
-                        </p>
-                    </div>
-
-                    {/* Links */}
-                    <div>
-                        <h4 className="mb-3 text-sm font-semibold">Company</h4>
-                        <ul className="space-y-2">
-                            {links.map((link) => (
-                                <li key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Trust Signals */}
-                    <div>
-                        <h4 className="mb-3 text-sm font-semibold">Trust & Security</h4>
-                        <ul className="space-y-2">
-                            {trustSignals.map((signal) => (
-                                <li key={signal.text} className="flex items-center gap-2">
-                                    <signal.icon className="h-4 w-4 text-accent" />
-                                    <span className="text-sm text-muted-foreground">{signal.text}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="mt-8 border-t border-border/30 pt-8 text-center">
-                    <p className="text-sm text-muted-foreground">
-                        © {new Date().getFullYear()} AI Infrastructure. All rights reserved.
+        <SectionContainer variant="muted" className="border-t border-border">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                {/* Company Info */}
+                <div className="md:col-span-1">
+                    <h3 className="font-bold text-lg text-foreground mb-2">
+                        {footer.company.name}
+                    </h3>
+                    <p className="text-sm text-foreground-secondary">
+                        {footer.company.tagline}
                     </p>
                 </div>
+
+                {/* Product Links */}
+                <div>
+                    <h4 className="font-semibold text-foreground mb-4">Product</h4>
+                    <ul className="space-y-3">
+                        {footer.links.product.map((link, index) => (
+                            <li key={index}>
+                                <a
+                                    href={link.href}
+                                    className="text-sm text-foreground-secondary hover:text-primary transition-colors"
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Company Links */}
+                <div>
+                    <h4 className="font-semibold text-foreground mb-4">Company</h4>
+                    <ul className="space-y-3">
+                        {footer.links.company.map((link, index) => (
+                            <li key={index}>
+                                <a
+                                    href={link.href}
+                                    className="text-sm text-foreground-secondary hover:text-primary transition-colors"
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Resources Links */}
+                <div>
+                    <h4 className="font-semibold text-foreground mb-4">Resources</h4>
+                    <ul className="space-y-3">
+                        {footer.links.resources.map((link, index) => (
+                            <li key={index}>
+                                <a
+                                    href={link.href}
+                                    className="text-sm text-foreground-secondary hover:text-primary transition-colors"
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
-        </footer>
+
+            {/* Trust Signals */}
+            <div className="border-t border-border pt-8 mb-8">
+                <div className="flex flex-wrap justify-center gap-6">
+                    {footer.trustSignals.map((signal, index) => (
+                        <div
+                            key={index}
+                            className="text-sm text-foreground-secondary font-medium"
+                        >
+                            {signal}
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Copyright */}
+            <div className="text-center">
+                <p className="text-sm text-foreground-muted">{footer.copyright}</p>
+            </div>
+        </SectionContainer>
     );
 }

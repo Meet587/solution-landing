@@ -1,24 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Database, Server, Users, ShieldCheck } from "lucide-react";
+import { Building2, Cpu, GitBranch, Wrench } from "lucide-react";
 import { SectionContainer } from "@/components/ui/section-container";
 import { FeatureCard } from "@/components/ui/feature-card";
 import { landingCopy } from "@/content/landing-copy";
 import { fadeInUp, staggerFast } from "@/lib/animations";
 
-const icons = {
-    0: Database,
-    1: Server,
-    2: Users,
-    3: ShieldCheck,
-};
+const icons = [Building2, Cpu, GitBranch, Wrench];
 
-export function SolutionSection() {
-    const { solution } = landingCopy;
+export function EnterpriseReadinessSection() {
+    const { enterpriseReadiness } = landingCopy;
 
     return (
-        <SectionContainer>
+        <SectionContainer variant="muted">
             <div className="text-center mb-16">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -27,7 +22,7 @@ export function SolutionSection() {
                     transition={{ duration: 0.6 }}
                     className="mb-4"
                 >
-                    {solution.headline}
+                    {enterpriseReadiness.headline}
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -36,7 +31,7 @@ export function SolutionSection() {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-xl text-foreground-secondary"
                 >
-                    {solution.subheadline}
+                    {enterpriseReadiness.subheadline}
                 </motion.p>
             </div>
 
@@ -47,17 +42,17 @@ export function SolutionSection() {
                 viewport={{ once: true }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-8"
             >
-                {solution.benefits.map((benefit, index) => {
-                    const Icon = icons[index as keyof typeof icons];
+                {enterpriseReadiness.sections.map((section, index) => {
+                    const Icon = icons[index];
                     return (
                         <motion.div key={index} variants={fadeInUp}>
                             <FeatureCard className="h-full">
                                 <Icon className="h-10 w-10 text-primary mb-4" />
                                 <h3 className="text-2xl font-bold mb-4 text-foreground">
-                                    {benefit.title}
+                                    {section.title}
                                 </h3>
-                                <p className="text-foreground-secondary leading-relaxed text-base">
-                                    {benefit.description}
+                                <p className="text-foreground-secondary leading-relaxed">
+                                    {section.body}
                                 </p>
                             </FeatureCard>
                         </motion.div>

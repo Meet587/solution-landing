@@ -1,125 +1,129 @@
 "use client";
 
-import { Section } from "@/components/ui/section";
 import { motion } from "framer-motion";
-import { Server, Database, Lock, Shield, Eye, FileKey } from "lucide-react";
-
-const benefits = [
-    { icon: Lock, text: "No cloud dependencies for inference" },
-    { icon: Shield, text: "Air-gapped deployment options" },
-    { icon: Eye, text: "Full audit trail & logging" },
-    { icon: FileKey, text: "Bring your own model weights" },
-];
+import { CheckCircle2, Server, Database, Shield } from "lucide-react";
+import { SectionContainer } from "@/components/ui/section-container";
+import { landingCopy } from "@/content/landing-copy";
+import { fadeInUp, staggerFast } from "@/lib/animations";
 
 export function ArchitectureSection() {
-    return (
-        <Section className="bg-secondary/20">
-            <div className="text-center mb-12">
-                <h2 className="mb-4">Architecture Built for <span className="gradient-text">Privacy</span></h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Your data never leaves your walls.
-                </p>
-            </div>
+    const { architecture } = landingCopy;
 
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-                {/* Architecture Diagram */}
+    return (
+        <SectionContainer id="architecture" variant="muted">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Left: Diagram */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="relative"
                 >
-                    <div className="glass-card p-8 space-y-6">
-                        {/* Your Infrastructure */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="relative rounded-xl border-2 border-accent-purple/50 bg-accent-purple/5 p-6"
-                        >
-                            <div className="flex items-center gap-3 mb-4">
-                                <Server className="h-6 w-6 text-accent-purple" />
-                                <h4 className="font-bold text-lg">Your Private Infrastructure</h4>
+                    <div className="bg-white border border-border rounded-lg p-8 shadow-soft">
+                        {/* Simple architecture diagram */}
+                        <div className="space-y-6">
+                            {/* Top: Your Private Infrastructure */}
+                            <div className="flex items-center gap-4 p-4 bg-primary/10 border border-primary rounded-lg">
+                                <Server className="h-10 w-10 text-primary" />
+                                <div>
+                                    <div className="font-bold text-foreground">
+                                        Your Private Infrastructure
+                                    </div>
+                                    <div className="text-sm text-foreground-secondary">
+                                        On-premises / Private VPC / Air-gapped
+                                    </div>
+                                </div>
                             </div>
 
-                            {/* AI Agent Layer */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.4 }}
-                                className="mb-4 rounded-lg border border-accent-blue/50 bg-accent-blue/10 p-4"
-                            >
-                                <div className="flex items-center gap-2 mb-2">
-                                    <div className="h-3 w-3 rounded-full bg-accent-blue animate-pulse" />
-                                    <span className="font-semibold text-sm">AI Agent Layer</span>
-                                </div>
-                                <p className="text-xs text-muted-foreground">
-                                    Running on your hardware
-                                </p>
-                            </motion.div>
+                            {/* Arrow */}
+                            <div className="flex justify-center">
+                                <div className="w-0.5 h-8 bg-border" />
+                            </div>
 
-                            {/* Data Sources */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.6 }}
-                                className="rounded-lg border border-accent-cyan/50 bg-accent-cyan/10 p-4"
-                            >
-                                <div className="flex items-center gap-2 mb-2">
-                                    <Database className="h-4 w-4 text-accent-cyan" />
-                                    <span className="font-semibold text-sm">Your Data Sources</span>
+                            {/* Middle: AI Agent Layer */}
+                            <div className="flex items-center gap-4 p-4 bg-accent border border-border rounded-lg">
+                                <Shield className="h-10 w-10 text-primary" />
+                                <div>
+                                    <div className="font-bold text-foreground">
+                                        AI Agent Layer
+                                    </div>
+                                    <div className="text-sm text-foreground-secondary">
+                                        Orchestration, reasoning, tool access
+                                    </div>
                                 </div>
-                                <p className="text-xs text-muted-foreground">
-                                    Internal databases, documents, APIs
-                                </p>
-                            </motion.div>
-                        </motion.div>
+                            </div>
 
-                        {/* Zero External Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
-                            className="inline-flex items-center gap-2 rounded-full gradient-primary px-4 py-2 text-sm font-bold glow"
-                        >
-                            <Lock className="h-4 w-4" />
-                            Zero External Transmission
-                        </motion.div>
+                            {/* Arrow */}
+                            <div className="flex justify-center">
+                                <div className="w-0.5 h-8 bg-border" />
+                            </div>
+
+                            {/* Bottom: Data Sources */}
+                            <div className="flex items-center gap-4 p-4 bg-muted border border-border rounded-lg">
+                                <Database className="h-10 w-10 text-primary" />
+                                <div>
+                                    <div className="font-bold text-foreground">
+                                        Internal Data Sources
+                                    </div>
+                                    <div className="text-sm text-foreground-secondary">
+                                        Documents, databases, APIs (internal only)
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Badge */}
+                            <div className="mt-8 text-center">
+                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 border border-green-300 rounded-full">
+                                    <CheckCircle2 className="h-5 w-5 text-green-700" />
+                                    <span className="font-semibold text-green-700">
+                                        Zero External Transmission
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
 
-                {/* Benefits List */}
+                {/* Right: Content */}
                 <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    variants={staggerFast}
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="space-y-6"
                 >
-                    {benefits.map((benefit, index) => (
-                        <motion.div
-                            key={benefit.text}
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="flex items-start gap-4 glass-card p-4"
-                        >
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg gradient-primary">
-                                <benefit.icon className="h-5 w-5 text-primary-foreground" />
+                    <motion.h2 variants={fadeInUp} className="mb-4">
+                        {architecture.headline}
+                    </motion.h2>
+
+                    <motion.p variants={fadeInUp} className="text-xl text-foreground-secondary mb-6">
+                        {architecture.subheadline}
+                    </motion.p>
+
+                    <div className="space-y-6 mb-8">
+                        {architecture.body.map((paragraph, index) => (
+                            <motion.p
+                                key={index}
+                                variants={fadeInUp}
+                                className="text-foreground-secondary leading-relaxed"
+                            >
+                                {paragraph}
+                            </motion.p>
+                        ))}
+                    </div>
+
+                    <motion.div variants={fadeInUp} className="space-y-3">
+                        {architecture.principles.map((principle, index) => (
+                            <div key={index} className="flex items-start gap-3">
+                                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                                <span className="text-foreground-secondary font-medium">
+                                    {principle}
+                                </span>
                             </div>
-                            <div className="flex-1 pt-1">
-                                <p className="font-semibold text-lg">{benefit.text}</p>
-                            </div>
-                        </motion.div>
-                    ))}
+                        ))}
+                    </motion.div>
                 </motion.div>
             </div>
-        </Section>
+        </SectionContainer>
     );
 }
