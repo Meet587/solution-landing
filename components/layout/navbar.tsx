@@ -16,7 +16,8 @@ export function Navbar() {
     const menuItems = [
         { name: "Home", href: "/" },
         { name: "Services", href: "/services" },
-        { name: "About Us", href: "#about" },
+        { name: "About Us", href: "/about" },
+        { name: "Contact Us", href: "/contact" },
     ]
 
     return (
@@ -41,9 +42,6 @@ export function Navbar() {
                                     {item.name}
                                 </Link>
                             ))}
-                            <Button asChild size="sm">
-                                <Link href="#contact">Contact Us</Link>
-                            </Button>
                         </div>
                     </div>
 
@@ -70,11 +68,6 @@ export function Navbar() {
                                 {item.name}
                             </Link>
                         ))}
-                        <div className="pt-4 pb-2">
-                            <Button className="w-full" asChild>
-                                <Link href="#contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
-                            </Button>
-                        </div>
                     </div>
                 </div>
             )}
