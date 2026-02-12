@@ -1,13 +1,14 @@
 "use client";
 
 import { ButtonHTMLAttributes, forwardRef } from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
-export interface GlowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface GlowButtonProps extends HTMLMotionProps<"button"> {
     variant?: "primary" | "secondary";
     loading?: boolean;
+    children?: React.ReactNode;
 }
 
 const GlowButton = forwardRef<HTMLButtonElement, GlowButtonProps>(
