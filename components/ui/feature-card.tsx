@@ -2,30 +2,31 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 interface FeatureCardProps extends React.HTMLAttributes<HTMLDivElement> {
-    children: React.ReactNode;
-    hover?: boolean;
+  children: React.ReactNode;
+  hover?: boolean;
 }
 
 /**
- * Clean feature card with subtle border, no glass morphism
- * Includes subtle lift effect on hover if enabled
+ * Dark surface card with 1px border, subtle glow on hover
+ * Enterprise-grade: no glass morphism, no bright gradients
  */
 export function FeatureCard({
-    children,
-    className,
-    hover = true,
-    ...props
+  children,
+  className,
+  hover = true,
+  ...props
 }: FeatureCardProps) {
-    return (
-        <div
-            className={cn(
-                "bg-white border border-border rounded-lg p-6 transition-all duration-300",
-                hover && "hover:shadow-soft-lg hover:-translate-y-0.5 hover:border-primary/30",
-                className
-            )}
-            {...props}
-        >
-            {children}
-        </div>
-    );
+  return (
+    <div
+      className={cn(
+        "bg-background-surface border border-border rounded-[10px] p-6 transition-all duration-300",
+        hover &&
+          "hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_8px_32px_hsl(217_91%_53%/0.08)]",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 }
