@@ -245,7 +245,7 @@ export function ServicesContent() {
                         <div className="relative w-full aspect-square max-w-md">
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl" />
                             <div className="relative z-10 grid grid-cols-2 gap-4 p-4">
-                                <FeatureCard className="col-span-2 bg-white/80 backdrop-blur">
+                                <FeatureCard className="col-span-2 bg-background-surface/80 backdrop-blur-xl">
                                     <div className="flex items-center gap-3 mb-3">
                                         <Bot className="h-6 w-6 text-primary" />
                                         <span className="font-semibold">Private Agent</span>
@@ -255,12 +255,12 @@ export function ServicesContent() {
                                         <div className="h-2 bg-muted rounded w-1/2" />
                                     </div>
                                 </FeatureCard>
-                                <FeatureCard className="bg-white/80 backdrop-blur translate-y-8">
+                                <FeatureCard className="bg-background-surface/80 backdrop-blur-xl translate-y-8">
                                     <Server className="h-6 w-6 text-primary mb-3" />
                                     <span className="font-semibold block">On-Prem</span>
                                     <span className="text-xs text-muted-foreground">Full Control</span>
                                 </FeatureCard>
-                                <FeatureCard className="bg-white/80 backdrop-blur -translate-y-4">
+                                <FeatureCard className="bg-background-surface/80 backdrop-blur-xl translate-y-4">
                                     <Lock className="h-6 w-6 text-primary mb-3" />
                                     <span className="font-semibold block">Secure</span>
                                     <span className="text-xs text-muted-foreground">No Leakage</span>

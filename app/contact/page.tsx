@@ -5,9 +5,8 @@ import {
   AlertCircle,
   CheckCircle2,
   XCircle,
-  ArrowRight,
 } from "lucide-react";
-import { EnterpriseButton } from "@/components/ui/enterprise-button";
+import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
   title: "Contact an Architect | Enterprise AI Infrastructure",
@@ -141,99 +140,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <form className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="name"
-                  className="text-sm font-medium text-foreground"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-3 bg-background border border-input rounded-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                  placeholder="Jane Doe"
-                />
-              </div>
-              <div className="space-y-2">
-                <label
-                  htmlFor="role"
-                  className="text-sm font-medium text-foreground"
-                >
-                  Role
-                </label>
-                <input
-                  type="text"
-                  id="role"
-                  className="w-full px-4 py-3 bg-background border border-input rounded-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                  placeholder="CTO, VP of Engineering"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="company"
-                className="text-sm font-medium text-foreground"
-              >
-                Company
-              </label>
-              <input
-                type="text"
-                id="company"
-                className="w-full px-4 py-3 bg-background border border-input rounded-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                placeholder="Acme Corp"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="usecase"
-                className="text-sm font-medium text-foreground"
-              >
-                Use Case Summary
-              </label>
-              <textarea
-                id="usecase"
-                rows={4}
-                className="w-full px-4 py-3 bg-background border border-input rounded-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
-                placeholder="We are looking to deploy internal agents for..."
-              />
-            </div>
-
-            <div className="space-y-3">
-              <label className="text-sm font-medium text-foreground block">
-                Deployment Preference
-              </label>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <label className="flex items-center gap-3 p-4 border border-input rounded-md cursor-pointer hover:border-primary/50 transition-colors bg-background-surface">
-                  <input
-                    type="radio"
-                    name="deployment"
-                    className="accent-primary w-4 h-4"
-                  />
-                  <span className="text-sm">On-Premises</span>
-                </label>
-                <label className="flex items-center gap-3 p-4 border border-input rounded-md cursor-pointer hover:border-primary/50 transition-colors bg-background-surface">
-                  <input
-                    type="radio"
-                    name="deployment"
-                    className="accent-primary w-4 h-4"
-                  />
-                  <span className="text-sm">Private Cloud</span>
-                </label>
-              </div>
-            </div>
-
-            <div className="pt-4">
-              <EnterpriseButton size="lg" className="w-full sm:w-auto">
-                Request Architecture Review
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </EnterpriseButton>
-            </div>
-          </form>
+          <ContactForm />
         </div>
 
         {/* Section 6 & 7: Alternative & Closing */}

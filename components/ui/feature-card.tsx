@@ -21,7 +21,7 @@ export function FeatureCard({
       className={cn(
         "bg-background-surface border border-border rounded-[10px] p-6 transition-all duration-300",
         hover &&
-          "hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_8px_32px_hsl(217_91%_53%/0.08)]",
+        "hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_8px_32px_hsl(168_76%_46%/0.08)]",
         className,
       )}
       {...props}

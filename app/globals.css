@@ -37,52 +37,91 @@
   --radius-2xl: calc(var(--radius) + 8px);
 }
 
+/* ── Light Mode (default) ── */
 :root {
   --radius: 0.625rem;
 
-  /* Dark Enterprise Theme — #0B0F19 base */
-  --background: 222 47% 7%;
-  /* #0B0F19 deep navy */
-  --background-surface: 220 26% 11%;
-  /* #111827 surface */
-  --background-elevated: 220 17% 17%;
-  /* #1F2937 elevated */
+  /* Backgrounds — clean whites */
+  --background: 0 0% 100%;
+  --background-surface: 220 14% 96%;
+  --background-elevated: 220 13% 91%;
 
   /* Text hierarchy */
-  --foreground: 0 0% 100%;
-  /* #FFFFFF */
-  --foreground-secondary: 240 4% 66%;
-  /* #A1A1AA */
-  --foreground-muted: 220 9% 46%;
-  /* #6B7280 */
+  --foreground: 220 20% 12%;
+  --foreground-secondary: 220 10% 40%;
+  --foreground-muted: 220 8% 55%;
 
-  /* Card backgrounds — dark surface */
-  --card: 220 26% 11%;
-  --card-foreground: 0 0% 100%;
-  --popover: 220 26% 11%;
-  --popover-foreground: 0 0% 100%;
+  /* Card / Popover */
+  --card: 0 0% 100%;
+  --card-foreground: 220 20% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 20% 12%;
 
-  /* Primary — controlled blue */
-  --primary: 217 91% 53%;
-  /* #2563EB */
+  /* Primary — energetic teal */
+  --primary: 168 84% 38%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary — deep navy text */
-  --secondary: 220 17% 17%;
-  --secondary-foreground: 0 0% 100%;
+  /* Secondary */
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 220 20% 12%;
 
   /* Muted */
-  --muted: 220 26% 11%;
-  --muted-foreground: 240 4% 66%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8% 55%;
 
   /* Accent */
-  --accent: 217 91% 53% / 0.1;
-  --accent-foreground: 217 91% 60%;
+  --accent: 168 84% 38% / 0.1;
+  --accent-foreground: 168 84% 32%;
+
+  /* Borders — subtle light */
+  --border: 220 13% 87%;
+  --input: 220 13% 87%;
+  --ring: 168 84% 38%;
+
+  /* Status colors */
+  --destructive: 0 84% 60%;
+  --success: 142 76% 36%;
+  --warning: 38 92% 50%;
+}
+
+/* ── Dark Mode ── */
+.dark {
+  /* Backgrounds — rich near-black */
+  --background: 220 20% 7%;
+  --background-surface: 220 16% 11%;
+  --background-elevated: 220 14% 16%;
+
+  /* Text hierarchy */
+  --foreground: 0 0% 98%;
+  --foreground-secondary: 220 8% 68%;
+  --foreground-muted: 220 8% 48%;
+
+  /* Card / Popover */
+  --card: 220 16% 11%;
+  --card-foreground: 0 0% 98%;
+  --popover: 220 16% 11%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Primary — brighter teal for dark bg */
+  --primary: 168 76% 46%;
+  --primary-foreground: 220 20% 7%;
+
+  /* Secondary */
+  --secondary: 220 14% 16%;
+  --secondary-foreground: 0 0% 98%;
+
+  /* Muted */
+  --muted: 220 16% 11%;
+  --muted-foreground: 220 8% 48%;
+
+  /* Accent */
+  --accent: 168 76% 46% / 0.12;
+  --accent-foreground: 168 76% 55%;
 
   /* Borders — subtle dark */
-  --border: 220 17% 17%;
-  --input: 220 17% 17%;
-  --ring: 217 91% 53%;
+  --border: 220 14% 16%;
+  --input: 220 14% 16%;
+  --ring: 168 76% 46%;
 
   /* Status colors */
   --destructive: 0 84% 60%;
@@ -96,6 +135,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -103,10 +143,12 @@
 }
 
 @keyframes subtlePulse {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.7;
   }
@@ -117,6 +159,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -124,12 +167,14 @@
 }
 
 @keyframes glowPulse {
+
   0%,
   100% {
-    box-shadow: 0 0 20px hsl(217 91% 53% / 0.15);
+    box-shadow: 0 0 20px hsl(168 76% 46% / 0.15);
   }
+
   50% {
-    box-shadow: 0 0 40px hsl(217 91% 53% / 0.3);
+    box-shadow: 0 0 40px hsl(168 76% 46% / 0.3);
   }
 }
 
@@ -179,6 +224,7 @@
 }
 
 @layer utilities {
+
   /* Section spacing — 120-160px vertical */
   .section-padding {
     @apply py-20 sm:py-24 lg:py-32;
@@ -192,21 +238,17 @@
     @apply mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-20;
   }
 
-  /* Blue accent gradient */
+  /* Teal accent gradient */
   .accent-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(217 91% 53%) 0%,
-      hsl(217 91% 65%) 100%
-    );
+    background: linear-gradient(135deg,
+        hsl(168 84% 38%) 0%,
+        hsl(152 69% 42%) 100%);
   }
 
   .text-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(217 91% 53%) 0%,
-      hsl(217 91% 70%) 100%
-    );
+    background: linear-gradient(135deg,
+        hsl(168 76% 46%) 0%,
+        hsl(152 69% 50%) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -225,27 +267,35 @@
     animation: glowPulse 3s ease-in-out infinite;
   }
 
-  /* Dark feature card */
+  /* Feature card */
   .feature-card {
     @apply bg-background-surface border border-border rounded-[10px] p-6 transition-all duration-300;
   }
 
   .feature-card:hover {
     @apply -translate-y-1;
-    border-color: hsl(217 91% 53% / 0.3);
-    box-shadow: 0 8px 32px hsl(217 91% 53% / 0.08);
+    border-color: hsl(168 76% 46% / 0.3);
+    box-shadow: 0 8px 32px hsl(168 76% 46% / 0.08);
   }
 
-  /* Dark shadow utilities */
+  /* Shadow utilities */
   .shadow-soft {
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.08);
+  }
+
+  :is(.dark) .shadow-soft {
     box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.3);
   }
 
   .shadow-soft-lg {
+    box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.12);
+  }
+
+  :is(.dark) .shadow-soft-lg {
     box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.4);
   }
 
-  /* Glass card for dark theme */
+  /* Glass card */
   .glass-card {
     @apply bg-background-surface/80 backdrop-blur-xl border border-border/50;
   }
@@ -255,14 +305,14 @@
   }
 
   .glow-hover:hover {
-    box-shadow: 0 0 30px hsl(217 91% 53% / 0.25);
+    box-shadow: 0 0 30px hsl(168 76% 46% / 0.25);
   }
 
   /* Subtle grid pattern overlay */
   .grid-pattern {
     background-image:
-      linear-gradient(hsl(220 17% 17% / 0.5) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(220 17% 17% / 0.5) 1px, transparent 1px);
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 }
