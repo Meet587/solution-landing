@@ -1,25 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { Toaster } from "@/components/ui/sonner";
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "AI Infrastructure | Hyper-Personalized AI Agents for Enterprise",
-  description: "Enterprise-grade AI agents trained exclusively on your private data, deployed on your own servers. Total control. Total privacy. Zero compromise.",
-  keywords: ["AI agents", "enterprise AI", "private AI", "on-premises AI", "AI infrastructure", "data privacy"],
+  title: "Private AI Infrastructure | Enterprise AI Agents",
+  description:
+    "Private AI agents deployed on your infrastructure. No shared models. No data leakage. Full control. Built for regulated enterprises.",
+  keywords: [
+    "private AI",
+    "enterprise AI",
+    "AI infrastructure",
+    "on-premises AI",
+    "AI agents",
+    "data privacy",
+    "regulated industries",
+  ],
   openGraph: {
-    title: "AI Infrastructure | Hyper-Personalized AI Agents for Enterprise",
-    description: "Enterprise-grade AI agents trained exclusively on your private data, deployed on your own servers.",
+    title: "Private AI Infrastructure | Enterprise AI Agents",
+    description:
+      "Private AI agents deployed on your infrastructure. No shared models. No data leakage. Full control.",
     type: "website",
   },
 };
@@ -30,14 +45,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased pt-16`}
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-
